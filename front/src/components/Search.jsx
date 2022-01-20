@@ -30,7 +30,11 @@ export default function Search({ setWord }) {
     'conj.',
     'pron.',
   ];
-  const options = posArr.map((pos) => <option value={pos}>{pos}</option>);
+  const options = posArr.map((pos) => (
+    <option key={pos} value={pos}>
+      {pos}
+    </option>
+  ));
 
   return (
     <form onSubmit={searchFor}>
