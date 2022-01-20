@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import axios from 'axios';
+import '../styles/search.css';
 
 export default function Search({ setWord }) {
   const wordRed = useRef(null);
@@ -18,24 +19,29 @@ export default function Search({ setWord }) {
     wordRed.current.value = '';
     posRef.current.value = null;
   };
+  const posArr = [
+    'n.',
+    'prep.',
+    'a.',
+    'v.',
+    'adv.',
+    'p.',
+    'interj.',
+    'conj.',
+    'pron.',
+  ];
+  const options = posArr.map((pos) => <option value={pos}>{pos}</option>);
 
   return (
     <form onSubmit={searchFor}>
       <input type='text' ref={wordRed} />
-      <select defaultValue='' ref={posRef}>
-        <option value='' disabled>
-          - select POS -
-        </option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-        <option value='placeholder'>placeholder</option>
-      </select>
-      <button type='submit'>Search</button>
+      <div>
+        <select defaultValue='' ref={posRef}>
+          <option value='' disabled></option>
+          {options}
+        </select>
+        <button type='submit'>Search</button>
+      </div>
     </form>
   );
 }

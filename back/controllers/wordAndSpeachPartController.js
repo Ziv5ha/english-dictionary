@@ -15,8 +15,8 @@ const getWordAndPartOfSpeach = async (req, res, next) => {
   const ans = await ddb
     .query(params, (err, data) => (err ? err : data))
     .promise();
-  if (!ans.items) next('wordNotFound');
-  res.send(ans.items);
+  if (!ans.Items) next('wordNotFound');
+  res.json(ans.Items);
 };
 
 module.exports = getWordAndPartOfSpeach;

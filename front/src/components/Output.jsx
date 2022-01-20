@@ -1,5 +1,6 @@
 import React from 'react';
 import Word from './Word';
+import '../styles/output.css';
 
 export default function Output({ word, setWord }) {
   if (!word) return <div>Try searching for a word</div>;
