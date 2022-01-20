@@ -8,7 +8,7 @@ export default function Output({ word, setWord }) {
   return word.map((dict) => (
     <div>
       <h3>{dict.word}</h3>
-      <p>{dict.pos}</p>
+      <p className='pos'>{dict.pos}</p>
       {dict.definitions.map((def) => {
         const slicedDef = def.split(' ');
         return (
