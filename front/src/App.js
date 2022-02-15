@@ -4,7 +4,6 @@ import Search from './components/Search';
 
 function App() {
   const [word, setWord] = useState(null);
-  console.log(word);
   return (
     <div className='App'>
       <Search setWord={setWord} />

@@ -11,10 +11,9 @@ export default function Search({ setWord }) {
     const word = wordRed.current.value;
     const pos = posRef.current.value;
     const searchUrl = !pos
-      ? `http://localhost:3001/${word}`
-      : `http://localhost:3001/${word}/${pos}`;
+      ? `https://0ogm50f5ie.execute-api.eu-west-1.amazonaws.com/dev/${word}`
+      : `https://0ogm50f5ie.execute-api.eu-west-1.amazonaws.com/dev/${word}/${pos}`;
     const response = await axios.get(searchUrl);
-    console.log(response);
     setWord(response.data);
     wordRed.current.value = '';
     posRef.current.value = null;
